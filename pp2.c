@@ -15,8 +15,10 @@ int main() {
     int p2[2];
     pipe(p2);
 
-    int fd1 = open("out1.txt", O_WRONLY);
-    int fd2 = open("out2.txt", O_WRONLY);
+    int fd1 = open("/tmp/out1.txt", O_CREAT|O_RDWR);
+    unlink("/tmp/out1.txt");
+    int fd2 = open("/tmp/out2.txt", O_CREAT|O_RDWR);
+    unlink("/tmp/out2.txt");
 
     int ps1, ps2;
 
